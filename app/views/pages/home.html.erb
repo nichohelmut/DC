@@ -1,2 +1,10 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
+<% if user_signed_in? %>
+  <%= link_to 'Upload some Cool Pics!', new_user_image_path(current_user.id), class: "btn btn-primary" %>
+
+<% else %>
+  <!-- Login link (when logged out) -->
+  <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "btn btn-primary" %>
+<% end %>
+</div>
